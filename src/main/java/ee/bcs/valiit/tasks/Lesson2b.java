@@ -73,6 +73,7 @@ public class Lesson2b {
     // TODO 5 võrdle ridu. Kas on mingi seaduspärasus ridade vahel,
     // mis on ja mis võiks olla. Äkki tuleb mõni idee
     public static void multiplyTable(int x, int y) {
+        int r = 0;
         for (int i = 1; i <= x; i++) {
             for (int j = 1; j <= y; j++) {
                 System.out.print(i * j + " ");

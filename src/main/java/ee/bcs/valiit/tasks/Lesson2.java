@@ -57,7 +57,7 @@ public class Lesson2 {
     }
 
     // TODO tagasta massiiv milles oleks numbrid 1,2,3,4,5
-    public int[] sampleArray() {
+    public static int[] sampleArray() {
         return new int[]{1, 2, 3, 4, 5};
     }
 
@@ -65,7 +65,7 @@ public class Lesson2 {
     // näiteks
     // sisend: 5
     // trüki välja: 1 2 3 4 5
-    public int[] firstN(int n) {
+    public static int[] firstN(int n) {
         int[] someNumbers = new int[n];
         for (int i = 0; i < n; i++) {
             someNumbers[i] = i + 1;

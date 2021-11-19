@@ -52,9 +52,9 @@ public class LessonA {
 
     public static boolean e8(boolean x1, boolean x2) {
         // tagasta true kui ainult 1 sisend muutujatest on true
-        if (x1 == true && x2 == false) {
+        if (x1 && !x2) {
             return true;
-        } else if (x1 == false && x2 == true) {
+        } else if (!x1 && x2) {
             return true;
         } else {
             return false;

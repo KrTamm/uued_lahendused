@@ -36,7 +36,7 @@ public class Lesson4 {
                 System.out.println("What account number balance would you like to access?");
                 line = scanner.nextLine();
                 if (accountBalanceMap.containsKey(line)) {
-                    System.out.println("Balance for this account is " + accountBalanceMap.get(line));
+                    System.out.println("Balance for this account is " + accountBalanceMap.get(line) + ".");
                 } else {
                     System.out.println("No such account exists.");
                 }
@@ -50,14 +50,14 @@ public class Lesson4 {
                 line = scanner.nextLine();
                 if (accountBalanceMap.containsKey(line)) {
                     System.out.println("How much would you like to deposit?");
+                    money = scanner.nextInt();
+                    if (money > 0) {
+                        newBalance = accountBalanceMap.get(line) + money;
+                        accountBalanceMap.replace(line, newBalance);
+                        System.out.println("You have added " + money + " to the account.");
+                    }
                 } else {
                     System.out.println("No such account exists.");
-                }
-                money = scanner.nextInt();
-                if (money > 0) {
-                    newBalance = accountBalanceMap.get(line) + money;
-                    accountBalanceMap.replace(line, newBalance);
-                    System.out.println("You have added " + money + " to the account.");
                 }
 
             }
@@ -68,14 +68,14 @@ public class Lesson4 {
             // You may not allow this transaction if account balance would become negative
             else if (line.equalsIgnoreCase("withdrawMoney")) {
                 System.out.println("From what account would you like to withdraw from?");
+                line = scanner.nextLine();
                 if (accountBalanceMap.containsKey(line)) {
-                    line = scanner.nextLine();
                     System.out.println("How much would you  like to withdraw?");
                     money = scanner.nextInt();
                     if (money > 0 && accountBalanceMap.get(line) > 0) {
                         newBalance = accountBalanceMap.get(line) - money;
                         accountBalanceMap.replace(line, newBalance);
-                        System.out.println("You have removed " + money + "from account" + line + ".");
+                        System.out.println("You have removed " + money + "from account " + line + ".");
                     }
                 } else {
                     System.out.println("No such account exists.");
@@ -92,8 +92,11 @@ public class Lesson4 {
                 if (accountBalanceMap.containsKey(line)) {
                     System.out.println("How much would you like to transfer?");
                     money = scanner.nextInt();
-                    if (money <= accountBalanceMap.get(line)) {
+                    if (money <= accountBalanceMap.get(line)){
+                        newBalance = accountBalanceMap.get(line) - money;
+                        accountBalanceMap.replace(line, newBalance);
                         System.out.println("To what account would you like to transfer");
+                        line = scanner.nextLine();
                         line = scanner.nextLine();
                         if (accountBalanceMap.containsKey(line)) {
                             newBalance = accountBalanceMap.get(line) + money;
